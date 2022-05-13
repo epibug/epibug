@@ -88,7 +88,7 @@
 		"name": "Annulation du vote BDE",
 		"description": "Le BDE ayant principalement effet sur le campus de Paris, seuls les élèves parisiens peuvent participer à son élection. Cependant, le formulaire du scrutin ayant été mal configuré (ouvert aux étudiants en région), le vote a du être annulé puis reconduit la semaine d'après.\nUne première victoire a été déclarée le vendredi soir, pour qu'ensuite une victoire de l'autre liste soit déclarée plus tard, avant l'annulation du scrutin pour le nouveau vote.",
 		"tags": ["BDE", "2024", "Paris"],
-		"severity": "medium",
+		"severity": "low",
 		"date": "2022-02-11",
 		"source": "https://news.infinity.study/newsgroups/announcement.ing1?news=%3Csujfge%249lhb%241%40inn-5d779d9897-pdvvf.cri.epita.fr%3E"
 	},

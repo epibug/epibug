@@ -1,10 +1,10 @@
 <script context="module" lang="ts">
 	import dayjs from 'dayjs';
-    import 'dayjs/locale/fr.js';
+	import 'dayjs/locale/fr.js';
 	import { Tooltip } from 'flowbite-svelte';
 	import incidents from '../incidents.json';
 
-    dayjs.locale('fr');
+	dayjs.locale('fr');
 
 	function isURL(s: string): boolean {
 		return /^https?:\/\/[^\s/$.?#].[^\s]*$/.test(s);
@@ -115,7 +115,7 @@
 </div>
 
 <footer class="justify-center p-4 bg-white rounded-lg shadow md:flex md:items-center md:p-6 dark:bg-gray-800">
-    <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="/" class="hover:underline">Epibug - Mon école bug</a>. Non affilié à EPITA.</span>
+	<span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="/" class="hover:underline">Epibug - Mon école bug</a>. Non affilié à EPITA.</span>
 </footer>
 
 <style lang="scss">
