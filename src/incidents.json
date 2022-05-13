@@ -2,7 +2,6 @@
 	{
 		"name": "Annulation examen de CHIFFR",
 		"description": "L'examen de CHIFFR a été annulé à cause de contre-indications entre les différentes régions.\nDes surveillants ont demandé aux élèves de passer en session normale plutôt que session exam ce qui a permis à des élèves de tricher. Cet examen a dû être repassé pour les élèves du Kremlin-Bicêtre.",
-		"type": "exam",
 		"tags": ["Exam", "2024", "Paris"],
 		"severity": "high",
 		"date": "2022-04-11"
@@ -10,7 +9,6 @@
 	{
 		"name": "Informations sur l'examen de Tiger uniquement envoyées aux élèves de Lyon",
 		"description": "Les informations sur l'examen de Tiger ont été envoyées aux élèves de Lyon uniquement.\nLes élèves de Lyon ont été informés que l'examen de Tiger serait à points négatifs et les documents autorisés.",
-		"type": "exam",
 		"tags": ["Exam", "2024"],
 		"severity": "medium",
 		"date": "2022-05-08"
@@ -18,7 +16,6 @@
 	{
 		"name": "Informations ambigues sur la notation de l'examen de SYS1",
 		"description": "Il a été annoncé dans certaines salles que l'examen serait à points négatifs alors qu'il ne l'a pas été.",
-		"type": "exam",
 		"tags": ["Exam", "2024"],
 		"severity": "low",
 		"date": "2021-11-29"
@@ -26,7 +23,6 @@
 	{
 		"name": "Informations ambigues sur la notation de l'examen de Tiger",
 		"description": "Il était indiqué sur les tableaux en salle machine que l'examen de Tiger serait à points négatifs alors que dans les instructions de l'examen il était indiqué qu'il pourrait ne pas l'être.",
-		"type": "exam",
 		"tags": ["Exam", "2024"],
 		"severity": "low",
 		"date": "2022-05-09"
@@ -34,7 +30,6 @@
 	{
 		"name": "Premier sujet de l'atelier Java interminable",
 		"description": "Le premier sujet de l'atelier Java n'était pas terminable dans le temps imparti, beaucoup de différences entre le sujet et la moulinette, sujet trop ambigu.",
-		"type": "workshop",
 		"tags": ["Atelier Java", "2024"],
 		"severity": "low",
 		"date": "2022-01-24",
@@ -44,7 +39,6 @@
 	{
 		"name": "Manque de communication sur la notation de l'atelier Java",
 		"description": "Ambiguité sur la notation du TD n°4 de l'atelier Java.",
-		"type": "workshop",
 		"tags": ["Atelier Java", "2024"],
 		"severity": "low",
 		"date": "2022-01-26",
@@ -54,7 +48,6 @@
 	{
 		"name": "JWS",
 		"description": "• Retard de la publication des vidéos explicatives du projet.\n• Aucune information sur le rendu pendant 6 jours.\n• Trop de mises-à-jour du sujet.\n• Intranet trop instable.",
-		"type": "workshop",
 		"tags": ["JWS", "2024"],
 		"severity": "high",
 		"date": "2022-01-31",
@@ -64,7 +57,6 @@
 	{
 		"name": "Crash Moodle durant des examens",
 		"description": "La plateforme moodle-exam a crash durant les examens de NET1, MASI et PFON. Les trois examens ont été annulés et les élèves ont dû les repasser.",
-		"type": "exam",
 		"tags": ["Exam", "2024"],
 		"severity": "medium",
 		"date": "2022-01-03",
@@ -74,7 +66,6 @@
 	{
 		"name": "Augmentation des points de la piscine C",
 		"description": "Le taux d'échec bien trop important à la piscine C a eu pour conséquence de devoir augmenter les points que rapportent les exercices de celle-ci. Cela a créé une injustice pour les élèves validant déjà la piscine.",
-		"type": "Piscine C",
 		"tags": ["Piscine C", "2024"],
 		"severity": "medium",
 		"date": "2021-11-18"
@@ -82,7 +73,6 @@
 	{
 		"name": "Manque de professeurs et d'assistants en régions",
 		"description": "Manque d'assistants pour la piscine C, les mini-projets et 42sh, et manque de professeurs pour THEG, CPXA, MOB1, NET1 et Tiger en régions.",
-		"type": "misc",
 		"tags": ["Régions", "2024"],
 		"severity": "high",
 		"date": "2022-01-01"
@@ -90,9 +80,16 @@
 	{
 		"name": "Oublie de communication d'un devoir d'ASM à rendre à Lyon",
 		"description": "Les élèves de Lyon ont appris grâce aux élèves de Paris qu'un devoir était à rendre pour le lendemain.",
-		"type": "misc",
 		"tags": ["Lyon", "2024"],
 		"severity": "low",
 		"date": "2021-12-14"
+	},
+	{
+		"name": "Annulation du vote BDE",
+		"description": "Le BDE ayant principalement effet sur le campus de Paris, seuls les élèves parisiens peuvent participer à son élection. Cependant, le formulaire du scrutin ayant été mal configuré (ouvert aux étudiants en région), le vote a du être annulé puis reconduit la semaine d'après.\nUne première victoire a été déclarée le vendredi soir, pour qu'ensuite une victoire de l'autre liste soit déclarée plus tard, avant l'annulation du scrutin pour le nouveau vote.",
+		"tags": ["BDE", "2024", "Paris"],
+		"severity": "medium",
+		"date": "2022-02-11",
+		"source": "https://news.infinity.study/newsgroups/announcement.ing1?news=%3Csujfge%249lhb%241%40inn-5d779d9897-pdvvf.cri.epita.fr%3E"
 	}
 ]

@@ -5,6 +5,10 @@
 	import incidents from '../incidents.json';
 
     dayjs.locale('fr');
+
+	function isURL(s: string): boolean {
+		return /^https?:\/\/[^\s/$.?#].[^\s]*$/.test(s);
+	}
 </script>
 
 <div class="timeline">
@@ -77,6 +81,24 @@
 					{i.description}
 				</p>
 
+				{#if i.source}
+					<div class="mb-4">
+						{#if isURL(i.source)}
+							<a
+								href={i.source}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="text-blue-500 hover:text-blue-600"
+							>
+								Source
+							</a>
+						{/if}
+						{#if !isURL(i.source)}
+							<span class="text-gray-500">Source : {i.source}</span>
+						{/if}
+					</div>
+				{/if}
+
 				<div class="flex flex-wrap -mx-1 mb-4">
 					{#each i.tags.sort() as tag}
 						<span
@@ -86,6 +108,7 @@
 						</span>
 					{/each}
 				</div>
+
 			</li>
 		{/each}
 	</ol>
