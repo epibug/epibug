@@ -91,5 +91,12 @@
 		"severity": "medium",
 		"date": "2022-02-11",
 		"source": "https://news.infinity.study/newsgroups/announcement.ing1?news=%3Csujfge%249lhb%241%40inn-5d779d9897-pdvvf.cri.epita.fr%3E"
+	},
+	{
+		"name": "Crash Moodle durant des examens",
+		"description": "Un disfonctionement du cri encore inconnu à ce jour a annulé la tenue des rattrapages de SYS et NET1 sur moodle, et par conséquent les élèves ont du les passer sur papier.",
+		"tags": ["Exam", "2024"],
+		"severity": "medium",
+		"date": "2022-05-09"
 	}
 ]
