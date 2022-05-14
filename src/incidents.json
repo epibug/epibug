@@ -107,5 +107,13 @@
 		"date": "2021-10-13",
 		"fixed": true,
 		"note": "Les notes de FOLO ont été ajustées."
+	},
+	{
+		"name": "Traces evalexpr",
+		"description": "Les traces du mini-projet C \"evalexpr\" ont été publiées avec 3 mois et 12 jours de retard.",
+		"tags": ["2024", "Projet"],
+		"severity": "low",
+		"date": "2022-01-21",
+		"source": "https://news.infinity.study/newsgroups/assistants.news?news=%3Csseb7j%244f0s%241%40inn-5d779d9897-pdvvf.cri.epita.fr%3E"
 	}
 ]
