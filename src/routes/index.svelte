@@ -110,7 +110,7 @@
 				<div class="flex flex-wrap -mx-1 mb-4">
 					{#each i.tags.sort() as tag}
 						<span
-							class="inline-flex items-center px-1.5 py-0.5 rounded-full text-sm font-medium text-gray-700 dark:text-gray-500 bg-gray-100 dark:bg-gray-700 mr-1"
+							class="inline-flex items-center px-1.5 py-0.5 rounded-full text-sm font-medium text-gray-700 dark:text-gray-100 bg-gray-100 dark:bg-gray-700 mr-1"
 						>
 							{tag}
 						</span>
@@ -122,7 +122,7 @@
 	</ol>
 </div>
 
-<footer class="justify-center p-4 bg-white rounded-lg shadow md:flex md:items-center md:p-6 dark:bg-gray-800">
+<footer class="justify-center p-4 bg-white rounded-lg shadow md:flex md:items-center md:p-6 dark:bg-background">
 	<span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="/" class="hover:underline">Epibug - Mon école bug</a>. Non affilié à EPITA.</span>
 </footer>
 

@@ -3,7 +3,7 @@
 	import { DarkMode } from "flowbite-svelte";
 </script>
 
-<DarkMode btnClass="theme-toggle" />
+<DarkMode btnClass="theme-toggle text-gray-900 dark:text-white" />
 <slot />
 
 <style lang="scss">
