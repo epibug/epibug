@@ -98,5 +98,14 @@
 		"tags": ["Exam", "2024"],
 		"severity": "medium",
 		"date": "2022-05-09"
+	},
+	{
+		"name": "Retour des notes de FOLO",
+		"description": "Les éleves n'ont pas eu de retour sur les examens précédents de FOLO avant de devoir passer l'examen final.",
+		"tags": ["Exam", "2024"],
+		"severity": "low",
+		"date": "2021-10-13",
+		"fixed": true,
+		"note": "Les notes de FOLO ont été ajustées."
 	}
 ]
