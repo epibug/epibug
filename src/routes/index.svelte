@@ -12,14 +12,22 @@
 </script>
 
 <div class="timeline">
-	<a
-		href="https://github.com/epibug/epibug/issues/new?assignees=&labels=Incident&template=ajout-d-un-incident.md&title=Ajout+d%27un+incident+%3A+%5BNOM%5D"
-		target="_blank"
-		class="md:inline-flex items-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ml-3"
-		rel="noopener noreferrer"
-	>
-		Ajouter un bug
-	</a>
+	<div class="container text-center">
+		<h1 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">EPIBUG</h1>
+		<p class="text-left md:text-center text-gray-900 dark:text-white">
+			Mon école bug, c'est ici que vous retrouverez tous les incidents interne de l'EPITA.
+		</p>
+	</div>
+	<div class="container text-center mt-4">
+		<a
+			href="https://github.com/epibug/epibug/issues/new?assignees=&labels=Incident&template=ajout-d-un-incident.md&title=Ajout+d%27un+incident+%3A+%5BNOM%5D"
+			target="_blank"
+			class="md:inline-flex items-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ml-3"
+			rel="noopener noreferrer"
+		>
+			Ajouter un bug
+		</a>
+	</div>
 
 	<ol class="timeline-container relative border-l border-gray-200 dark:border-gray-700">
 		{#each incidents.sort((a, b) => dayjs(b.date).diff(dayjs(a.date))) as i}
