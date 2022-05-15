@@ -115,5 +115,12 @@
 		"severity": "low",
 		"date": "2022-01-21",
 		"source": "https://news.infinity.study/newsgroups/assistants.news?news=%3Csseb7j%244f0s%241%40inn-5d779d9897-pdvvf.cri.epita.fr%3E"
+	},
+	{
+		"name": "Engagement étudiant",
+		"description": "Les élèves ayant un engagement étudiant n'ont à ce jour (15 mai 2022) toujours pas eu de réponse sur les cours dont ils sont dispensés pour le S6.",
+		"tags": ["2024", "Engagement étudiant"],
+		"severity": "medium",
+		"date": "2022-01-03"
 	}
 ]
