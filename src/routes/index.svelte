@@ -1,35 +1,26 @@
 <script context="module" lang="ts">
 	import dayjs from 'dayjs';
-	import 'dayjs/locale/fr.js';
 	import { Tooltip } from 'flowbite-svelte';
 	import incidents from '../incidents.json';
-
-	dayjs.locale('fr');
 
 	function isURL(s: string): boolean {
 		return /^https?:\/\/[^\s/$.?#].[^\s]*$/.test(s);
 	}
 </script>
 
-<div class="timeline">
-	<div class="container text-center">
-		<h1 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">EPIBUG</h1>
-		<p class="text-left md:text-center text-gray-900 dark:text-white">
-			Mon école bug, c'est ici que vous retrouverez tous les incidents interne de l'EPITA.
-		</p>
-	</div>
-	<div class="container text-center mt-4">
+<div class="lg:max-w-4xl m-auto flex flex-col w-11/12">
+	<div class="text-center">
 		<a
 			href="https://github.com/epibug/epibug/issues/new?assignees=&labels=Incident&template=ajout-d-un-incident.md&title=Ajout+d%27un+incident+%3A+%5BNOM%5D"
 			target="_blank"
 			class="md:inline-flex items-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ml-3"
 			rel="noopener noreferrer"
 		>
-			Ajouter un bug
+			Ajouter un incident
 		</a>
 	</div>
 
-	<ol class="timeline-container relative border-l border-gray-200 dark:border-gray-700">
+	<ol class="relative border-l border-gray-200 dark:border-gray-700 mt-5">
 		{#each incidents.sort((a, b) => dayjs(b.date).diff(dayjs(a.date))) as i}
 			<li class="mb-10 ml-4">
 				<div
@@ -116,36 +107,7 @@
 						</span>
 					{/each}
 				</div>
-
 			</li>
 		{/each}
 	</ol>
 </div>
-
-<footer class="justify-center p-4 bg-white rounded-lg shadow md:flex md:items-center md:p-6 dark:bg-background">
-	<span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="/" class="hover:underline">Epibug - Mon école bug</a>. Non affilié à EPITA.</span>
-</footer>
-
-<style lang="scss">
-	.timeline {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		max-width: 800px;
-		width: 100%;
-		min-height: 100vh;
-		margin: 0 auto;
-		padding: 0;
-		padding-top: 50px;
-
-		@media (max-width: 800px) {
-			flex-direction: column;
-			width: 90%;
-			margin: 0 auto;
-		}
-
-		.timeline-container {
-			margin-top: 25px;
-		}
-	}
-</style>

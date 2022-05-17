@@ -39,7 +39,9 @@
 		"@sveltejs/adapter-vercel": "^1.0.0-next.50",
 		"@types/js-yaml": "^4.0.5",
 		"dayjs": "^1.11.2",
+		"firebase": "^9.8.1",
 		"js-yaml": "^4.1.0",
-		"node-sass": "^7.0.1"
+		"node-sass": "^7.0.1",
+		"svelte-bricks": "^0.1.7"
 	}
 }
