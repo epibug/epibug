@@ -94,32 +94,22 @@
 
 				<div class="mt-6">
 					{#if comments.length}
-					<h3 class="text-xl font-medium text-gray-900 dark:text-white">
-						Commentaires ({comments?.length || 0})
-					</h3>
+						<h3 class="text-xl font-medium text-gray-900 dark:text-white">
+							Commentaires ({comments?.length || 0})
+						</h3>
 					{/if}
 					<div class="mt-5 flex flex-col">
 						{#each comments as comment}
 							<div class="flex flex-col">
 								<div class="flex items-center">
-									<div class="flex-shrink-0 w-8 h-8 bg-transparent">
-										<!-- default avatar url -->
-										<img
-											src="https://epibug.now.sh/favicon.png"
-											class="w-full h-full rounded-full"
-											alt="avatar"
-										/>
-									</div>
-									<div class="ml-3">
-										<div class="text-gray-900 dark:text-white">
-											<p class="text-sm font-medium">
-												<span class="text-gray-600 dark:text-white">Anonymous</span>
-												-
-												<span class="text-gray-600 dark:text-white"
-													>{dayjs(comment.createdAt?.toDate()).fromNow()}</span
-												>
-											</p>
-										</div>
+									<div class="text-gray-900 dark:text-white">
+										<p class="text-sm font-medium">
+											<span class="text-gray-600 dark:text-white">Anonymous</span>
+											-
+											<span class="text-gray-600 dark:text-white"
+												>{dayjs(comment.createdAt?.toDate()).fromNow()}</span
+											>
+										</p>
 									</div>
 								</div>
 								<p class="mt-1 text-sm text-gray-700 dark:text-white">
