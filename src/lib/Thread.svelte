@@ -1,58 +1,36 @@
-<script context="module" lang="ts">
-	import {
-		getFirestore,
-		collection,
-		getDocs,
-		getDoc,
-		addDoc,
-		serverTimestamp,
-		doc
-	} from 'firebase/firestore';
+<script lang="ts">
+	import directus from '../lib/directus';
+	import dayjs from 'dayjs';
 	import { Button, Textarea } from 'flowbite-svelte';
-	import { app } from '../lib/app';
 	import relativeTime from 'dayjs/plugin/relativeTime.js';
 	dayjs.extend(relativeTime);
-</script>
-
-<script lang="ts">
-	import dayjs from 'dayjs';
 
 	export let closeModal: () => void;
+	export let reload: () => void;
 	export let data: any;
-	let comments = [];
 
-	const db = getFirestore(app);
-
-	async function getComments() {
-		const commentsCollection = collection(db, 'complaints', data.id, 'comments');
-		const commentsDocs = await getDocs(commentsCollection);
-		comments = commentsDocs.docs
-			.map((doc) => {
-				return {
-					...doc.data(),
-					id: doc.id
-				};
-			})
-			.sort((a, b) => {
-				return a.createdAt?.seconds - b.createdAt?.seconds;
-			});
-	}
-	getComments();
+	let comments = data.comments.sort((a, b) => {
+		return Date.parse(a.date_created) - Date.parse(b.date_created);
+	});
 
 	async function onPostComment(e) {
-		const commentsCollection = collection(db, 'complaints', data.id, 'comments');
-
 		e.preventDefault();
 
 		const text = e.target.content.value;
 
-		const docRef = await addDoc(commentsCollection, {
-			content: text,
-			createdAt: serverTimestamp()
-		});
+		try {
+			let item = await directus.items('comments').createOne({
+				content: text,
+				complaint: data.id,
+				complaint_id: data.id,
+			});
 
-		getComments();
-		e.target.content.value = '';
+			reload();
+			
+			e.target.content.value = '';
+		} catch (error) {
+			alert("Eh oh doucement, réessaye dans quelques instants.");
+		}
 	}
 </script>
 
@@ -93,9 +71,9 @@
 				</p>
 
 				<div class="mt-6">
-					{#if comments.length}
+					{#if data.comments.length}
 						<h3 class="text-xl font-medium text-gray-900 dark:text-white">
-							Commentaires ({comments?.length || 0})
+							Commentaires ({data.comments?.length || 0})
 						</h3>
 					{/if}
 					<div class="mt-5 flex flex-col">
@@ -107,7 +85,7 @@
 											<span class="text-gray-600 dark:text-white">Anonymous</span>
 											-
 											<span class="text-gray-600 dark:text-white"
-												>{dayjs(comment.createdAt?.toDate()).fromNow()}</span
+												>{dayjs(comment.date_created).fromNow()}</span
 											>
 										</p>
 									</div>

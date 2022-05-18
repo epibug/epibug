@@ -1,29 +1,18 @@
-<script context="module" lang="ts">
-	import { getFirestore, collection, getDocs, addDoc, serverTimestamp } from 'firebase/firestore';
-	import Masonry from 'svelte-bricks';
-	import Thread from '$lib/Thread.svelte';
-	import '../lib/app';
-
-	const db = getFirestore();
-	const complaintsCollection = collection(db, 'complaints');
+<script lang="ts" context="module">
+	import directus from '../lib/directus';
 
 	async function loadComplaints() {
-		const complaintsDocs = await getDocs(complaintsCollection);
+		// sort
+		const ref = await directus.items('complaints').readByQuery({
+			limit: -1,
+			fields: '*.*'
+		});
 
-		const complaints = complaintsDocs.docs
-			.map((doc) => {
-				return {
-					...doc.data(),
-					id: doc.id
-				};
-			})
-			.sort((a, b) => {
-				return b.createdAt.seconds - a.createdAt.seconds;
-			});
-
-		return complaints;
+		return ref.data.sort((a, b) => {
+			return Date.parse(b.date_created) - Date.parse(a.date_created);
+		});
 	}
-	
+
 	export async function load() {
 		return {
 			props: {
@@ -31,28 +20,12 @@
 			}
 		};
 	}
-
-	function getColorClass(color) {
-		switch (color) {
-			case 'red':
-				return 'bg-note-red';
-			case 'green':
-				return 'bg-note-green';
-			case 'blue':
-				return 'bg-note-blue';
-			case 'yellow':
-				return 'bg-note-yellow';
-			case 'orange':
-				return 'bg-note-orange';
-			case 'purple':
-				return 'bg-note-purple';
-		}
-
-		return 'bg-note-blue';
-	}
 </script>
 
 <script lang="ts">
+	import Thread from '../lib/Thread.svelte';
+	import Masonry from 'svelte-bricks';
+
 	export let complaints = [];
 
 	let color = 'blue';
@@ -78,22 +51,48 @@
 		showThread = false;
 	}
 
+	async function reloadBoard() {
+		complaints = await loadComplaints();
+	}
+
+	function getColorClass(color) {
+		switch (color) {
+			case 'red':
+				return 'bg-note-red';
+			case 'green':
+				return 'bg-note-green';
+			case 'blue':
+				return 'bg-note-blue';
+			case 'yellow':
+				return 'bg-note-yellow';
+			case 'orange':
+				return 'bg-note-orange';
+			case 'purple':
+				return 'bg-note-purple';
+		}
+
+		return 'bg-note-blue';
+	}
 	async function onPostComplaint(e) {
 		e.preventDefault();
 
 		const title = e.target.title.value;
 		const text = e.target.text.value;
 
-		const docRef = await addDoc(complaintsCollection, {
-			title,
-			content: text,
-			color: color,
-			createdAt: serverTimestamp()
-		});
+		try {
+			await directus.items('complaints').createOne({
+				title,
+				content: text,
+				color
+			});
 
-		closeModal();
-		complaints = await loadComplaints();
+			closeModal();
+			complaints = await loadComplaints();
+		} catch (e) {
+			alert("Eh oh doucement, réessaye dans quelques instants.");
+		}
 	}
+
 </script>
 
 {#if showModal}
@@ -170,7 +169,9 @@
 								<span
 									on:click={() => (color = c)}
 									class:border-2={c === color}
-									class="{getColorClass(c)} border-indigo-800 cursor-pointer block rounded-lg w-5 h-5 mr-1"
+									class="{getColorClass(
+										c
+									)} border-indigo-800 cursor-pointer block rounded-lg w-5 h-5 mr-1"
 								/>
 							{/each}
 						</div>
@@ -187,7 +188,7 @@
 {/if}
 
 {#if showThread}
-	<Thread closeModal={closeThread} data={selectedComplaint} />
+	<Thread reload={reloadBoard} closeModal={closeThread} data={selectedComplaint} />
 {/if}
 
 <div class="container m-auto min-h-3/5 w-11/12" aria-hidden="true">
@@ -205,7 +206,9 @@
 		<Masonry items={complaints} minColWidth={200} maxColWidth={800} gap={35} let:item>
 			<div
 				on:click={() => openThread(item)}
-				class="{getColorClass(item.color)} cursor-pointer w-full md:w-72 inline-block p-6 rounded-lg border border-gray-200 dark:border-gray-800 shadow-md hover:opacity-90 transition-opacity"
+				class="{getColorClass(
+					item.color
+				)} cursor-pointer w-full md:w-72 inline-block p-6 rounded-lg border border-gray-200 dark:border-gray-800 shadow-md hover:opacity-90 transition-opacity"
 			>
 				<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
 					{item.title}
@@ -213,9 +216,14 @@
 				<!-- Cut the text if it's too long -->
 				<p class="font-normal text-gray-700 dark:text-white">
 					{item.content.length > 500 ? item.content.substring(0, 500) + '...' : item.content}
+				</p>
 				<div class="float-right flex">
+					<span class="text-sm mr-px text-gray-700 dark:text-white">
+						{item.comments?.length || 0}
+					</span>
+
 					<svg
-						class="opacity-60"
+						class="fill-gray-700 dark:fill-white"
 						width="20px"
 						height="20px"
 						viewBox="0 0 24 24"

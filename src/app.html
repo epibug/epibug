@@ -4,9 +4,22 @@
 		<meta charset="utf-8" />
 		<link rel="icon" href="%svelte.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="description" content="Mon école bug, c'est ici que vous retrouverez tous les incidents interne de l'EPITA." />
+		<meta
+			name="description"
+			content="Mon école bug, c'est ici que vous retrouverez tous les incidents interne de l'EPITA."
+		/>
 		<title>Epibug - Mon école bug</title>
 		%svelte.head%
+
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-CY8P6EEVR5"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
+			gtag('config', 'G-CY8P6EEVR5');
+		</script>
 	</head>
 	<body class="bg-white dark:bg-background">
 		<div>%svelte.body%</div>
