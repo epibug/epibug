@@ -129,5 +129,12 @@
 		"tags": ["2024", "Exam", "Régions", "Paris"],
 		"severity": "low",
 		"date": "2021-09-11"
+	},
+	{
+		"name": "Examen de Marketing",
+		"description": "De nombreux élèves à Villejuif ont du passer l'examen de marketing sur papier suite à un disfonctionement de nombreux ordinateurs.\nCes élèves n'ont pas pu utiliser les supports de cours donnés.",
+		"tags": ["2024", "Exam", "Villejuif"],
+		"severity": "medium",
+		"date": "2022-05-23"
 	}
 ]
