@@ -122,5 +122,12 @@
 		"tags": ["2024", "Engagement étudiant"],
 		"severity": "medium",
 		"date": "2022-01-03"
+	},
+	{
+		"name": "Note de FOLO non comptabilisée",
+		"description": "La note du premier examen de FOLO à Paris n'a pas été comptabilisée dans le bulletin des élèves car il n'a pas été effectué dans les sites de région.",
+		"tags": ["2024", "Exam", "Régions", "Paris"],
+		"severity": "low",
+		"date": "2021-09-11"
 	}
 ]
