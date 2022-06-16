@@ -66,8 +66,12 @@
 			</div>
 			<div class="px-6 space-y-6 lg:px-8">
 				<h3 class="text-xl font-medium text-gray-900 dark:text-white">{data.title}</h3>
-				<p class="text-gray-700 dark:text-white">
+				<p class="text-gray-700 dark:text-white whitespace-pre-wrap">
 					{data.content}
+				</p>
+
+				<p class="text-gray-700 dark:text-white text-sm italic mt-5">
+					{dayjs(data.date_created).format('DD MMM YYYY à HH:mm')}
 				</p>
 
 				<div class="mt-6">

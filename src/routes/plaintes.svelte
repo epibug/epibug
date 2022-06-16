@@ -25,6 +25,7 @@
 <script lang="ts">
 	import Thread from '../lib/Thread.svelte';
 	import Masonry from 'svelte-bricks';
+import dayjs from 'dayjs';
 
 	export let complaints = [];
 
@@ -214,9 +215,15 @@
 					{item.title}
 				</h5>
 				<!-- Cut the text if it's too long -->
-				<p class="font-normal text-gray-700 dark:text-white">
+				<p class="font-normal text-gray-700 dark:text-white whitespace-pre-wrap">
 					{item.content.length > 500 ? item.content.substring(0, 500) + '...' : item.content}
 				</p>
+				<div class="flex mt-5 justify-between">
+				<div class="float-left flex">
+					<span class="text-gray-700 dark:text-white text-sm italic">
+						{dayjs(item.date_created).format('DD MMM YYYY à HH:mm')}
+					</span>
+				</div>
 				<div class="float-right flex">
 					<span class="text-sm mr-px text-gray-700 dark:text-white">
 						{item.comments?.length || 0}
@@ -236,6 +243,7 @@
 							d="M7 18a1 1 0 0 1-1-1v-3H3.75A1.752 1.752 0 0 1 2 12.25v-8.5A1.752 1.752 0 0 1 3.75 2h12.5A1.752 1.752 0 0 1 18 3.75v8.5a1.762 1.762 0 0 1-.514 1.238A1.736 1.736 0 0 1 16.25 14h-4.836l-3.707 3.707A1 1 0 0 1 7 18zm-3-6h3a1 1 0 0 1 1 1v1.586l2.293-2.293A1 1 0 0 1 11 12h5V4H4v8z"
 						/>
 					</svg>
+				</div>
 				</div>
 			</div>
 		</Masonry>
