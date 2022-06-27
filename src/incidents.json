@@ -136,5 +136,14 @@
 		"tags": ["2024", "Exam", "Villejuif"],
 		"severity": "medium",
 		"date": "2022-05-23"
+	},
+	{
+		"name": "Examen de LOFO",
+		"description": "L'examen de LOFO a été annulé sur tous les sites 15 minutes avant le début de l'examen pour cause de disfonctionement d'ordinateurs sur les campus de région.",
+		"tags": ["2024", "Exam"],
+		"severity": "medium",
+		"date": "2022-06-27",
+		"fixed": true,
+		"note": "L'examen de LOFO a été reporté pour le sur-lendemain."
 	}
 ]
