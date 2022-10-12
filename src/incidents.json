@@ -145,5 +145,14 @@
 		"date": "2022-06-27",
 		"fixed": true,
 		"note": "L'examen de LOFO a été reporté pour le sur-lendemain."
+	},
+	{
+		"name": "Déplacement rattrapage PBS",
+		"description": "Le rattrapage devait se dérouler en salle machine sur moodle comme n'importe quel examen. Au dernier moment, l'administration s'est rendu compte que les travaux en cisco allaient rendre la tache insupportable. Tout le monde a ainsi été déplacé dans l'amphi 1 et les sujets moodle ont été imprimé.",
+		"tags": ["2024", "Exam", "Travaux"],
+		"severity": "low",
+		"date": "2022-08-29",
+		"fixed": true,
+		"note": "Les sujets ont été imprimés et les élèves ont pu passer l'examen dans l'amphi 1."
 	}
 ]
